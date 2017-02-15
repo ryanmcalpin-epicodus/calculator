@@ -14,38 +14,34 @@ var divide = function(number1, number2) {
   return number1 / number2;
 };
 
-var bmi = function(weight, height) {
-	return (weight / Math.pow(height, 2)) * 703;
-}
-//var number1 = parseInt(prompt("Enter weight in pounds:"));
-//var number2 = parseInt(prompt("Enter height in inches:"));
-//alert(bmi(number1, number2));
 
-
-var tempConvert = function(degree, isCelsius){
-	if(isCelsius === false){
-  	//then it's fahrenheit
-    var result = (degree-32)*5/9;
-  } else{
-  	//then it's Celsius
-    var result = (9*degree/5) +32;
-  }
-  return result;
-}
-//alert(tempConvert(71, false));
-//alert(tempConvert(0, true));
-
-var number1 = parseInt(prompt("Enter a number:"));
-var number2 = parseInt(prompt("Enter another number:"));
-
-var resultAdd = add(number1, number2);
-alert(resultAdd);
-
-var resultSubtract = subtract(number1, number2);
-alert(resultSubtract);
-
-var resultMultiply = multiply(number1, number2);
-alert(resultMultiply);
-
-var resultDivide = divide(number1, number2);
-alert(resultDivide);
+$(document).ready(function() {
+  $("#add").submit(function(){
+    var number1 = parseInt($("#add1").val());
+    var number2 = parseInt($("#add2").val());
+    var result = add(number1, number2);
+    $("#output").text(result);
+    event.preventDefault();
+  });
+  $("#subtract").submit(function(){
+    var number1 = parseInt($("#subtract1").val());
+    var number2 = parseInt($("#subtract2").val());
+    var result = subtract(number1, number2);
+    $("#output").text(result);
+    event.preventDefault();
+  });
+  $("#multiply").submit(function(){
+    var number1 = parseInt($("#multiply1").val());
+    var number2 = parseInt($("#multiply2").val());
+    var result = multiply(number1, number2);
+    $("#output").text(result);
+    event.preventDefault();
+  });
+  $("#divide").submit(function(){
+    var number1 = parseInt($("#divide1").val());
+    var number2 = parseInt($("#divide2").val());
+    var result = divide(number1, number2);
+    $("#output").text(result);
+    event.preventDefault();
+  });
+});
